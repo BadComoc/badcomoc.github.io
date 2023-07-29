@@ -366,3 +366,31 @@ footer
         padding-bottom: 22rem;
     }
 }
+
+/* Misc */
+#fourofour-container
+{
+    display: flex;
+    align-items: center;
+
+    width: 100vw;
+    height: 100vh;
+    
+    overflow: hidden;
+    box-sizing: content-box !important;
+    
+    background-image: url("/img/swirl-bg.gif");
+}
+
+#fourofour-text
+{    
+    margin: auto;
+
+    font-size: 500%;
+
+    font-family: "Comic Sans MS";
+
+    color: #FFFFFF;
+    text-shadow: 5px 5px #000000;
+    text-align: center;
+}
