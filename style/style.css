@@ -350,4 +350,8 @@ footer
     {
         width: 0;
     }
+
+    #content-wrapper {
+        padding-bottom: 22rem;
+    }
 }
