@@ -300,6 +300,18 @@ footer
     clear: both;
 }
 
+#music-button-wrapper
+{
+    position: absolute;
+    margin-left: 2rem;
+}
+#music-button-wrapper img:hover {
+    filter: invert(75%);
+}
+#music-button-wrapper img:active {
+    filter: invert(100%) brightness(50%);
+}
+
 /* Mobile */
 @media screen and (max-width: 600px)
 {
@@ -322,8 +334,19 @@ footer
         width: 0;
     }
 
-    #content-wrapper {
+    #content-wrapper 
+    {
         padding-bottom: 22rem;
+    }
+
+    #music-button-wrapper 
+    {
+        display: block;
+        width: 100%;
+        position: relative;
+        margin-left: auto;
+        margin-left: right;
+        text-align: center;
     }
 }
 
