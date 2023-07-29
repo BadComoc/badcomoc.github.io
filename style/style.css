@@ -157,10 +157,8 @@ header
 {
     font-family: "Comic Sans MS";
     
-    color: #ffffff;
+    color: rgba(255, 255, 255, 0.5);
     text-decoration: none;
-
-    mix-blend-mode: soft-light;
 
     user-select: none;
     -webkit-user-select: none;
