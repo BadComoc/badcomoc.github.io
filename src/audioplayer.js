@@ -21,20 +21,17 @@ $(document).ready(function()
     initAudio();
 
     audio.addEventListener("canplaythrough", () => {
-        audio.play().catch(e => {
-            window.addEventListener('click', () => {
-                audio.play()
-            }, { once: true })
-        })
+        document.getElementById("mute-button").addEventListener('click', () => {
+            audio.play()
+        }, { once: true });
     });
 });
 
 function initAudio()
 {
     audio = new Audio(playlist[playlistIndex]);
+    audio.autoplay = false;
     audio.muted = audioMuted;
-    audio.autoplay = true;
-    audio.play();
     document.body.appendChild(audio);
     console.log("Init Audio " + playlist[playlistIndex]);
     $(audio).on("ended", function() // Can't use nextSong() because it causes infinite recursion for some fucking reason?
@@ -69,12 +66,12 @@ function muteAudio()
     toggleAudio = !toggleAudio;
     if (toggleAudio == false)
     {
-        $("#music-button").attr("src", "/img/mutedbutton.png");
+        $("#mute-button").attr("src", "/img/mutedbutton.png");
         audioMuted = true;
     }
     else
     {
-        $("#music-button").attr("src", "/img/musicbutton.gif");
+        $("#mute-button").attr("src", "/img/musicbutton.gif");
         audioMuted = false;
     }
     audio.muted = audioMuted;
