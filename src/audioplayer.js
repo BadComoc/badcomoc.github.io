@@ -1,15 +1,44 @@
 const playlist = [
-    "/audio/watch.mp3",
-    "/audio/sanctuary.mp3",
-    "/audio/bonus.mp3",
-    "/audio/characterselect.mp3",
-    "/audio/alliwant.mp3",
-    "/audio/wolverine.mp3",
-    "/audio/myownsummer.mp3",
-    "/audio/fighterselect.mp3",
-    "/audio/snakeeater.mp3"
+    "watch.mp3",
+    "fighterselect.mp3",
+    "maskeddedede.mp3",
+    "guile.mp3",
+    "vampirekiller.mp3",
+    "bloodytears.mp3",
+    "megamanx.mp3",
+    "sanctuary.mp3",
+    "mariopaint.mp3",
+    "alliwant.mp3",
+    "bonus.mp3",
+    "redzone.mp3",
+    "wolverine.mp3",
+    "characterselect.mp3",
+    "gourmetrace.mp3",
+    "snakeeater.mp3",
+    "butterfly.mp3",
+    "mutecity.mp3",
+    "bigblue.mp3",
+    "safeandsound.mp3",
+    "theimpressionthatiget.mp3",
+    "drwily.mp3",
+    "feelgoodinc.mp3",
+    "myownsummer.mp3",
+    "betteroffalone.mp3",
+    "freakonaleash.mp3",
+    "scarymonstersandnicesprites.mp3",
+    "rainingblood.mp3",
+    "cityescape.mp3",
+    "rainbowroad.mp3",
+    "liveandlearn.mp3",
+    "igotafeeling.mp3",
+    "beach.mp3",
+    "carelesswhisper.mp3",
+    "monty.mp3",
+    "schism.mp3",
+    "onewingedangel.mp3",
+    "throughthefireandtheflames.mp3"
 ];
-let maxSongs = 8;
+let maxSongs = 38;
 let playlistIndex = 0;
 
 let toggleAudio = false;
@@ -29,19 +58,18 @@ $(document).ready(function()
 
 function initAudio()
 {
-    audio = new Audio(playlist[playlistIndex]);
+    let link = "/audio/music/" + playlist[playlistIndex];
+    audio = new Audio(link);
     audio.autoplay = false;
     audio.muted = audioMuted;
     document.body.appendChild(audio);
-    //console.log("Init Audio " + playlist[playlistIndex]);
     $(audio).on("ended", function() // Can't use nextSong() because it causes infinite recursion for some fucking reason?
     {
         document.body.removeChild(audio);
         audio.pause();
         playlistIndex += 1;
-        if (playlistIndex > maxSongs)
+        if (playlistIndex > maxSongs-1)
             playlistIndex = 0;
-        //console.log("Next Song " + playlist[playlistIndex]);
         initAudio();
         audio.currentTime = 0;
         audio.play();
@@ -53,9 +81,8 @@ function nextSong()
     document.body.removeChild(audio);
     audio.pause();
     playlistIndex += 1;
-    if (playlistIndex > maxSongs)
+    if (playlistIndex > maxSongs-1)
         playlistIndex = 0;
-    //console.log("Next Song " + playlist[playlistIndex]);
     initAudio();
     audio.currentTime = 0;
     audio.play();
