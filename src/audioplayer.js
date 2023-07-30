@@ -13,18 +13,19 @@ let maxSongs = 8;
 let playlistIndex = 0;
 
 let toggleAudio = false;
+let audioMuted = true;
 var audio;
 
 $(document).ready(function() 
 {
     initAudio();
-    audio.muted = true;
 });
 
 function initAudio()
 {
     audio = new Audio(playlist[playlistIndex]);
     document.body.appendChild(audio);
+    audio.muted = audioMuted;
     audio.autoplay = true;
     console.log("Init Audio " + playlist[playlistIndex]);
     $(audio).on("ended", function() // Can't use nextSong() because it causes infinite recursion for some fucking reason?
@@ -60,11 +61,12 @@ function muteAudio()
     if (toggleAudio == false)
     {
         $("#music-button").attr("src", "/img/mutedbutton.png");
-        audio.muted = true;
+        audioMuted = true;
     }
     else
     {
         $("#music-button").attr("src", "/img/musicbutton.gif");
-        audio.muted = false;
+        audioMuted = false;
     }
+    audio.muted = audioMuted;
 }
