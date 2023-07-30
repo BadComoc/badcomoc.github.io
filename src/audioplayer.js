@@ -12,12 +12,13 @@ const playlist = [
 let maxSongs = 8;
 let playlistIndex = 0;
 
-let toggleAudio = true;
+let toggleAudio = false;
 var audio;
 
 $(document).ready(function() 
 {
     initAudio();
+    audio.muted = true;
 });
 
 function initAudio()
@@ -59,11 +60,11 @@ function muteAudio()
     if (toggleAudio == false)
     {
         $("#music-button").attr("src", "/img/mutedbutton.png");
-        audio.pause();
+        audio.muted = true;
     }
     else
     {
         $("#music-button").attr("src", "/img/musicbutton.gif");
-        audio.play();
+        audio.muted = false;
     }
 }

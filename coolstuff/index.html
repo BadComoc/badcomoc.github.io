@@ -100,6 +100,10 @@
   <!-- Footer -->
   <footer>
     <div id="footer-wrapper">
+      <div id="music-button-wrapper">
+        <img width="99px" height="36px" id="music-button" src="/img/mutedbutton.png" title="Pause/Play" onClick="muteAudio()" role="button" draggable="false" />
+        <img width="36px" height="36px" id="music-button" src="/img/nextsongbutton.gif" title="Next Song" onClick="nextSong()" role="button" draggable="false" />
+      </div>
       <div class="center">
         <img id="headsmash" src="/img/headsmash.gif" />
         <img src="/img/construction.gif" />
@@ -109,6 +113,7 @@
   </footer>
 
   <!-- Scripts -->
+  <script type="text/javascript" src="/src/audioplayer.js"></script>
   <script type="text/javascript" src="/src/ajax.js"></script>
 
 </body>

@@ -1,28 +1,39 @@
 $(document).ready(function() 
 {
-    function anchorClick(link)
+    function openUrl(href)
     {
-        $.get("/ajax" + link, function(data) 
-        {
-            $("#content-wrapper").html(data);
+        var link = "/ajax" + href;
+        console.log(href);
+        console.log(link);
+        $.ajax({
+            url: link,
+            async: true,
+            type: 'GET',
+            cache: false,
+            success: function(result)
+            {
+                $("#content-wrapper").html(result);
+            }
         });
+        window.history.pushState({href: href}, '', href);
     }
 
     $("#header-wrapper").on("click", "a", function(e)
     {
-        window.history.pushState(null, null, $(this).attr('href'));
-        anchorClick($(this).attr('href'));
+        openUrl($(this).attr('href'));
         e.preventDefault();
+        return false;
     });
 
     $("#nav-wrapper").on("click", "a", function(e)
     {
-        window.history.pushState(null, null, $(this).attr('href'));
-        anchorClick($(this).attr('href'));
+        openUrl($(this).attr('href'));
         e.preventDefault();
+        return false;
     });
 
     window.addEventListener("popstate", function(e) {
-        anchorClick(location.pathname);
+        if (e.state)
+            openUrl(e.state.href);
     });
 });
