@@ -3,11 +3,9 @@ $(document).ready(function()
     function openUrl(href)
     {
         var link = "/ajax" + href;
-        console.log(href);
-        console.log(link);
         $.ajax({
             url: link,
-            async: true,
+            async: false,
             type: 'GET',
             cache: false,
             success: function(result)
