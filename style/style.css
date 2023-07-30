@@ -64,7 +64,7 @@ body
 
     object-fit: contain;
 
-    image-rendering: crisp-edges;
+    image-rendering: pixelated;
 }
 
 #title-logo
