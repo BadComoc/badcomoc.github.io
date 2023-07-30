@@ -19,14 +19,23 @@ var audio;
 $(document).ready(function() 
 {
     initAudio();
+
+    audio.addEventListener("canplaythrough", () => {
+        audio.play().catch(e => {
+            window.addEventListener('click', () => {
+                audio.play()
+            }, { once: true })
+        })
+    });
 });
 
 function initAudio()
 {
     audio = new Audio(playlist[playlistIndex]);
-    document.body.appendChild(audio);
     audio.muted = audioMuted;
     audio.autoplay = true;
+    audio.play();
+    document.body.appendChild(audio);
     console.log("Init Audio " + playlist[playlistIndex]);
     $(audio).on("ended", function() // Can't use nextSong() because it causes infinite recursion for some fucking reason?
     {
