@@ -33,7 +33,7 @@ function initAudio()
     audio.autoplay = false;
     audio.muted = audioMuted;
     document.body.appendChild(audio);
-    console.log("Init Audio " + playlist[playlistIndex]);
+    //console.log("Init Audio " + playlist[playlistIndex]);
     $(audio).on("ended", function() // Can't use nextSong() because it causes infinite recursion for some fucking reason?
     {
         document.body.removeChild(audio);
@@ -41,7 +41,7 @@ function initAudio()
         playlistIndex += 1;
         if (playlistIndex > maxSongs)
             playlistIndex = 0;
-        console.log("Next Song " + playlist[playlistIndex]);
+        //console.log("Next Song " + playlist[playlistIndex]);
         initAudio();
         audio.currentTime = 0;
         audio.play();
@@ -55,7 +55,7 @@ function nextSong()
     playlistIndex += 1;
     if (playlistIndex > maxSongs)
         playlistIndex = 0;
-    console.log("Next Song " + playlist[playlistIndex]);
+    //console.log("Next Song " + playlist[playlistIndex]);
     initAudio();
     audio.currentTime = 0;
     audio.play();
