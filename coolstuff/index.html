@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+<head prefix="og: https://ogp.me/ns#">
   <title>BadComoc's Cool Website</title>
 
   <!-- Meta Tags -->
@@ -9,25 +9,33 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta name="theme-color" content="#000000" />
-  <!-- <meta name="description" content="" /> -->
+  <meta name="description" content="BadComoc's Cool Website" />
 
-  <!-- TODO: Social Media Tags
-  <meta property="og:title" content="" />
-  <meta property="og:type" content="" />
-  <meta property="og:image" content="" />
-  <meta property="og:url" content="" />
-  <meta name="twitter:card" content="" />
-  <meta name="twitter:site" content="" />
-  <meta name="twitter:title" content="" />
-  <meta name="twitter:image" content="" />
-  <meta name="twitter:image:alt" content="" />
-  -->
+  <!-- Social Media Tags -->
+  <meta property="og:title" content="BadComoc's Cool Website" />
+  <meta property="og:type" content="website" />
+  <meta property="og:description" content="BadComoc's Cool Website" />
+  <!-- <meta property="og:image" content="" /> -->
+  <meta property="og:url" content="https://badcomoc.dev/" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="BadComoc's Cool Website" />
+  <meta name="twitter:description" content="BadComoc's Cool Website" />
+  <!-- <meta name="twitter:image" content="" />
+  <meta name="twitter:image:alt" content="" /> -->
+
+  <script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "Organization",
+    "name": "BadComoc",
+    "founder": { "@type": "Person", "name": "BadComoc", "url": "https://badcomoc.dev/about/" },
+    "url": "https://badcomoc.dev/"
+  }</script>
 
   <!-- TODO: Favicons
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
   <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="/favicon/apple-touch-icon.png">
-  <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg">
+  <link rel="icon" type="image/svg+xml" sizes="any" href="/favicon/favicon.svg">
   -->
 
   <!-- Style Sheets -->

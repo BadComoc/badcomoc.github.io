@@ -26,8 +26,8 @@ body
 
 @keyframes marquee 
 {
-    0% { transform: translate(100vw, 0); }
-    100% { transform: translate(-100%, 0); }
+    0% { transform: translate(100vw, 0); -webkit-transform: translate(100vw, 0); }
+    100% { transform: translate(-100%, 0); -webkit-transform: translate(-100%, 0); }
 }
 
 .looping-title-container
@@ -41,10 +41,11 @@ body
 
 .looping-title-wrapper
 {
-    transform: translate(100vw, 0);
-
     white-space: nowrap;
     box-sizing: border-box;
+
+    transform: translate(100vw, 0);
+    -webkit-transform: translate(100vw, 0);
 
     -webkit-animation: marquee 30s linear infinite;
     animation: marquee 30s linear infinite;
