@@ -16,7 +16,7 @@ $(document).ready(function()
         window.history.pushState({href: href}, '', href);
     }
 	
-	function openBlog()
+	function openBlog(href)
     {
         var link = "/ajax" + href;
         $.ajax({
@@ -26,7 +26,8 @@ $(document).ready(function()
             cache: false,
             success: function(result)
             {
-                $("#content-wrapper").html("<iframe src=\"" + link + "\"></iframe>");
+				var embedHTML = "<iframe src=\"" + href + "\"></iframe>";
+                $("#content-wrapper").html(embedHTML);
             }
         });
         window.history.pushState({href: href}, '', href);
@@ -48,7 +49,7 @@ $(document).ready(function()
 	
 	$(document).on("click", "#blog-btn", function(e)
     {
-        openBlog();
+        openBlog($(this).attr('href'));
         e.preventDefault();
         return false;
     });
