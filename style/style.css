@@ -26,28 +26,28 @@ body
 
 @keyframes marquee 
 {
-    0% { transform: translate(0, 0); }
-    100% { transform: translate(-850%, 0); }
+    0% { transform: translate(100vw, 0); }
+    100% { transform: translate(-100%, 0); }
 }
 
 .looping-title-container
 {
     position: relative;
 
-    width: 100%;
+    width: fit-content;
 
     overflow: hidden;
 }
 
 .looping-title-wrapper
 {
+    transform: translate(100vw, 0);
+
     white-space: nowrap;
     box-sizing: border-box;
 
-    padding-left: 100%;
-
-    -webkit-animation: marquee 120s linear infinite;
-    animation: marquee 120s linear infinite;
+    -webkit-animation: marquee 30s linear infinite;
+    animation: marquee 30s linear infinite;
 }
 
 .looping-title-wrapper span 
