@@ -15,22 +15,6 @@ $(document).ready(function()
         });
         window.history.pushState({href: href}, '', href);
     }
-	
-	function openBlog(href)
-    {
-        $.ajax({
-            url: href,
-            async: false,
-            type: 'GET',
-            cache: false,
-            success: function(result)
-            {
-				var embedHTML = "<iframe src=\"" + href + "\"></iframe>";
-                $("#content-wrapper").html(embedHTML);
-            }
-        });
-        window.history.pushState({href: href}, '', href);
-    }
 
     $("#header-wrapper").on("click", "a", function(e)
     {
@@ -42,13 +26,6 @@ $(document).ready(function()
     $(document).on("click", "#ajax", function(e)
     {
         openUrl($(this).attr('href'));
-        e.preventDefault();
-        return false;
-    });
-	
-	$(document).on("click", "#blog-btn", function(e)
-    {
-        openBlog($(this).attr('href'));
         e.preventDefault();
         return false;
     });
