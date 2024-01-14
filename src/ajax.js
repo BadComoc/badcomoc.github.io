@@ -2,15 +2,15 @@ $(document).ready(function()
 {
     function openUrl(href)
     {
-        var link = "/ajax" + href;
         $.ajax({
-            url: link,
-            async: false,
+            url: href,
+            async: true,
             type: 'GET',
             cache: false,
-            success: function(result)
+            success: function(data, status, jqXHR)
             {
-                $("#content-wrapper").html(result);
+                var content = $(jqXHR.responseText).find("#content-wrapper");
+                $("#content-wrapper").html(content.html());
             }
         });
         window.history.pushState({href: href}, '', href);

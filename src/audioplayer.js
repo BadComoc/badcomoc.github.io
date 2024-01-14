@@ -65,14 +65,7 @@ function initAudio()
     document.body.appendChild(audio);
     $(audio).on("ended", function() // Can't use nextSong() because it causes infinite recursion for some fucking reason?
     {
-        document.body.removeChild(audio);
-        audio.pause();
-        playlistIndex += 1;
-        if (playlistIndex > maxSongs-1)
-            playlistIndex = 0;
-        initAudio();
-        audio.currentTime = 0;
-        audio.play();
+        nextSong();
     });
 }
 
@@ -83,6 +76,18 @@ function nextSong()
     playlistIndex += 1;
     if (playlistIndex > maxSongs-1)
         playlistIndex = 0;
+    initAudio();
+    audio.currentTime = 0;
+    audio.play();
+}
+
+function prevSong()
+{
+    document.body.removeChild(audio);
+    audio.pause();
+    playlistIndex -= 1;
+    if (playlistIndex <= 0)
+        playlistIndex = maxSongs-1;
     initAudio();
     audio.currentTime = 0;
     audio.play();
