@@ -23,7 +23,7 @@ $(document).ready(function()
         return false;
     });
 
-    $("#ajax").on("click", "a", function(e)
+    $("#ajax").on("click", function(e)
     {
         openUrl($(this).attr('href'));
         e.preventDefault();
