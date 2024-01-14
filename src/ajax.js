@@ -25,6 +25,9 @@ $(document).ready(function()
 
     $(document).on("click", "#ajax", function(e)
     {
+        $(document).find(".current").removeClass("current");
+        $(this).addClass("current");
+
         openUrl($(this).attr('href'));
         e.preventDefault();
         return false;

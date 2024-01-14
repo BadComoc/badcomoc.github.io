@@ -185,6 +185,12 @@ header
     mix-blend-mode: normal;
 }
 
+#nav-wrapper .current {
+    color: #0000ff;
+    text-shadow: 1px 1px #0FFF50;
+    mix-blend-mode: normal;
+}
+
 footer 
 {
     display: block;
