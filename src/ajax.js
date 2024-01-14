@@ -18,9 +18,8 @@ $(document).ready(function()
 	
 	function openBlog(href)
     {
-        var link = "/ajax" + href;
         $.ajax({
-            url: link,
+            url: href,
             async: false,
             type: 'GET',
             cache: false,
