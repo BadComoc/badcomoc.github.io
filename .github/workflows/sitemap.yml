@@ -35,6 +35,6 @@ jobs:
         echo "Updated sitemap.xml" >> generated.txt
         git config user.name BadComoc
         git config user.email 38559971+BadComoc@users.noreply.github.com
-        git add sitemap.xml
+        git add ./sitemap.xml
         git commit -F generated.txt
         git push
