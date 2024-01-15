@@ -6,7 +6,7 @@ $(document).ready(function()
             url: href,
             async: true,
             type: 'GET',
-            cache: false,
+            cache: true,
             success: function(data, status, jqXHR)
             {
                 var content = $(jqXHR.responseText).find("#content-wrapper");
