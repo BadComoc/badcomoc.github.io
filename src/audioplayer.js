@@ -38,20 +38,22 @@ const playlist = [
     "onewingedangel.mp3",
     "throughthefireandtheflames.mp3"
 ];
-let maxSongs = 38;
+let maxSongs = 38; // Can probably get array length but whatever.
 let playlistIndex = 0;
 
+var audio; // The audio object.
+
+// Some settings.
 let toggleAudio = false;
 let audioMuted = true;
-var audio;
 
 $(document).ready(function() 
 {
-    initAudio();
+    initAudio(); // Get it ready on document load.
 
     audio.addEventListener("canplaythrough", () => {
         document.getElementById("mute-button").addEventListener('click', () => {
-            audio.play()
+            audio.play() // Play the audio on first click.
         }, { once: true });
     });
 });
@@ -59,13 +61,13 @@ $(document).ready(function()
 function initAudio()
 {
     let link = "/audio/music/" + playlist[playlistIndex];
-    audio = new Audio(link);
+    audio = new Audio(link); // Does this cause a memory leak?
     audio.autoplay = false;
     audio.muted = audioMuted;
-    document.body.appendChild(audio);
-    $(audio).on("ended", function() // Can't use nextSong() because it causes infinite recursion for some fucking reason?
+    document.body.appendChild(audio); // Add the audio object to the document.
+    $(audio).on("ended", function()
     {
-        nextSong();
+        nextSong(); // Play next song when current audio ended.
     });
 }
 
