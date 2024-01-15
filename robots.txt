@@ -4,3 +4,5 @@ Disallow: /404.html
 
 User-agent: *
 Allow: /
+
+Sitemap: https://badcomoc.dev/sitemap.xml
