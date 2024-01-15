@@ -86,7 +86,7 @@ function prevSong()
     document.body.removeChild(audio);
     audio.pause();
     playlistIndex -= 1;
-    if (playlistIndex <= 0)
+    if (playlistIndex < 0)
         playlistIndex = maxSongs-1;
     initAudio();
     audio.currentTime = 0;
