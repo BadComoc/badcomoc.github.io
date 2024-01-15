@@ -43,28 +43,45 @@ let playlistIndex = 0;
 
 var audio; // The audio object.
 
-// Some settings.
+// Some settings and flags.
 let toggleAudio = false;
 let audioMuted = true;
 
 $(document).ready(function() 
 {
-    initAudio(); // Get it ready on document load.
+    if (audioMuted == true) { $("#mute-button").attr("src", "/img/mutedbutton.png"); }
+    else { $("#mute-button").attr("src", "/img/musicbutton.gif"); }
 
-    audio.addEventListener("canplaythrough", () => {
-        document.getElementById("mute-button").addEventListener('click', () => {
-            audio.play() // Play the audio on first click.
-        }, { once: true });
-    });
+    initAudio(); // Load first song.
+
+    if (audioMuted == true)
+    {
+        audio.addEventListener("canplaythrough", () => {
+            document.getElementById("mute-button").addEventListener('click', () => {
+                audio.play() // Play the audio on first click.
+            }, { once: true });
+        });
+    }
+    else
+    {
+        audio.autoplay = true; // Auto-play audio if muted is disabled by default.
+    }
 });
 
 function initAudio()
 {
     let link = "/audio/music/" + playlist[playlistIndex];
-    audio = new Audio(link); // Does this cause a memory leak?
+
+    audio = new Audio(); // Create new audio object.
     audio.autoplay = false;
     audio.muted = audioMuted;
-    document.body.appendChild(audio); // Add the audio object to the document.
+
+    document.body.appendChild(audio); // Add reference to the document.
+    
+    // Load audio from link.
+    audio.src = link;
+    audio.load();
+
     $(audio).on("ended", function()
     {
         nextSong(); // Play next song when current audio ended.
@@ -73,24 +90,48 @@ function initAudio()
 
 function nextSong()
 {
-    document.body.removeChild(audio);
+    document.body.removeChild(audio); // Remove reference from document.
+
     audio.pause();
+
+    // Delete audio object.
+    audio.src = "";
+    delete audio.srcObject;
+    audio.srcObject = null;
+    delete audio;
+    audio = null;
+
+    // Load next song.
     playlistIndex += 1;
     if (playlistIndex > maxSongs-1)
         playlistIndex = 0;
     initAudio();
+
+    // Play it.
     audio.currentTime = 0;
     audio.play();
 }
 
 function prevSong()
 {
-    document.body.removeChild(audio);
+    document.body.removeChild(audio); // Remove reference from document.
+
     audio.pause();
+
+    // Delete audio object.
+    audio.src = "";
+    delete audio.srcObject;
+    audio.srcObject = null;
+    delete audio;
+    audio = null;
+
+    // Load previous song.
     playlistIndex -= 1;
     if (playlistIndex < 0)
         playlistIndex = maxSongs-1;
     initAudio();
+
+    // Play it.
     audio.currentTime = 0;
     audio.play();
 }
@@ -108,5 +149,6 @@ function muteAudio()
         $("#mute-button").attr("src", "/img/musicbutton.gif");
         audioMuted = false;
     }
+
     audio.muted = audioMuted;
 }
