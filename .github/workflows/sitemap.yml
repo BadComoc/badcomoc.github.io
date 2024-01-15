@@ -32,8 +32,8 @@ jobs:
     - name: Commit the sitemap
       run: |
         date > generated.txt
-        git config --global user.name 'BadComoc'
-        git config --global user.email '38559971+BadComoc@users.noreply.github.com'
+        git config user.name BadComoc
+        git config user.email 38559971+BadComoc@users.noreply.github.com
         git add .
         git commit -m "generated"
         git push
