@@ -49,8 +49,8 @@ let audioMuted = true;
 
 $(document).ready(function() 
 {
-    if (audioMuted == true) { $("#mute-button").attr("src", "/_assets/img/mutedbutton.png"); }
-    else { $("#mute-button").attr("src", "/_assets/img/musicbutton.gif"); }
+    if (audioMuted == true) { $("#mute-button").attr("src", "/assets/img/mutedbutton.png"); }
+    else { $("#mute-button").attr("src", "/assets/img/musicbutton.gif"); }
 
     initAudio(); // Load first song.
 
@@ -70,7 +70,7 @@ $(document).ready(function()
 
 function initAudio()
 {
-    let link = "/_assets/audio/music/" + playlist[playlistIndex];
+    let link = "/assets/audio/music/" + playlist[playlistIndex];
 
     audio = new Audio(); // Create new audio object.
     audio.autoplay = false;
@@ -141,12 +141,12 @@ function muteAudio()
     toggleAudio = !toggleAudio;
     if (toggleAudio == false)
     {
-        $("#mute-button").attr("src", "/_assets/img/mutedbutton.png");
+        $("#mute-button").attr("src", "/assets/img/mutedbutton.png");
         audioMuted = true;
     }
     else
     {
-        $("#mute-button").attr("src", "/_assets/img/musicbutton.gif");
+        $("#mute-button").attr("src", "/assets/img/musicbutton.gif");
         audioMuted = false;
     }
 
