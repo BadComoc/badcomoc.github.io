@@ -524,15 +524,9 @@ footer
     {
         width: 100%;
 
-        scrollbar-width: auto;
-
         position: relative;
         margin: auto;
         text-align: center;
-    }
-    #banners-wrapper::-webkit-scrollbar
-    {
-        width: 10px;
     }
 }
 
