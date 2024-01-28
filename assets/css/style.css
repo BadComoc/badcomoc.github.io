@@ -20,6 +20,8 @@ body
 
     background: #ffffff;
     color: #ffffff;
+
+    cursor: none;
 }
 body::-webkit-scrollbar
 {
@@ -34,6 +36,14 @@ body::-webkit-scrollbar
     justify-content: flex-start;
 
     background-image: url("/assets/img/main-bg.gif");
+}
+
+.cursor
+{
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    background-image: url("/assets/img/cursor/flaming-sword.gif");
 }
 
 @keyframes marquee 
