@@ -43,7 +43,16 @@ body::-webkit-scrollbar
     position: absolute;
     width: 32px;
     height: 32px;
+
     background-image: url("/assets/img/cursor/flaming-sword.gif");
+
+    pointer-events: none;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+
+    z-index: 999;
 }
 
 @keyframes marquee 
@@ -434,6 +443,8 @@ footer
     z-index: 99;
 
     text-align: left;
+
+    cursor: pointer;
 }
 #music-button-wrapper img:hover {
     filter: invert(75%);

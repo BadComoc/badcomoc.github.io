@@ -1,6 +1,8 @@
 $(document).ready(function() 
 {
     const cursor = document.querySelector('.cursor');
+    let mouseX = 0;
+    let mouseY = 0;
 
     $(window).on("resize", function() {
         setTimeout(function() {
@@ -10,10 +12,39 @@ $(document).ready(function()
     });
 
     $(window).on("mousemove", function(e) {
-        const mouseY = e.clientY;
-        const mouseX = e.clientX;
+        mouseY = e.clientY;
+        mouseX = e.clientX;
 
         cursor.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`; // Move custom cursor to actual cursor.
+    });
+
+    $(function() { // Hide/show custom cursor when 
+        $('a').hover(function() { // hovering over links
+            $(cursor).css('display', 'none');
+        }, function() {  // not hovering over links
+            $(cursor).css('display', 'block');
+        });
+
+        $('iframe').hover(function() { // hovering over iframes
+            $(cursor).css('display', 'none');
+        }, function() {  // not hovering over iframes
+            $(cursor).css('display', 'block');
+        });
+
+        $('#music-button-wrapper').hover(function() { // hovering over music buttons
+            $(cursor).css('display', 'none');
+        }, function() {  // not hovering over  music buttons
+            $(cursor).css('display', 'block');
+        });
+
+        $(document).mouseleave(function() { // leaving the page
+            $(cursor).css('display', 'none');
+        });
+        $(document).mouseenter(function() { // entering the page
+            $(cursor).css('display', 'block');
+        });
+
+        // TODO: More cases.
     });
 
 });
