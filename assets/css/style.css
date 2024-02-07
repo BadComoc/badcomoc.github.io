@@ -492,6 +492,11 @@ footer
 /* Mobile */
 @media only screen and (max-width: 640px)
 {
+	body
+	{
+		cursor: auto;
+	}
+	
     footer
     {
         position: relative;
