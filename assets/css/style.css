@@ -549,6 +549,11 @@ footer
         margin: auto;
         text-align: center;
     }
+	
+	.cursor
+	{
+		display: none;
+	}
 }
 
 /* Misc */
